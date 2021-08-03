@@ -1,0 +1,45 @@
+										Task-3 Report
+
+Report Date: 03-08-2021
+Weakness: Cross-Site-Scripting(XSS)
+
+Summary -> website https://www.Vulnweb.com having a Sub-Domain->https://www.testasp.Vulnweb.com
+	 has an search that is vulnerableto an injection vulnerability - namely a reflected injection of JavaScript,
+	 also known as Reflected Cross Site Scripting (XSS).
+	 As per OWASP'sdefinition: "Cross-Site Scripting (XSS) attacks are a type of injection,
+	 in which malicious scripts are injected into otherwise benign and trusted websites. "
+	 This happens because one of the GET parameters "p" does not properly sanitize/escape user input, allowing an injection to occur. 
+
+Steps To Reproduce -> 
+
+	Step 1: Visit http://testasp.vulnweb.com/
+
+	Step 2: On the top menu you will find a search option.
+
+	Step 3: Click on it and you will be prompted with the Search box.
+
+	Step 4: You can intercept the request in Burp Suite
+
+	Step 5: Now you can find different payloads for XSS. 
+		For proof of concept you can use this vulnerability code payload:= </scrip</script>t><img src =q onerror=prompt(8)>
+		And Screenshot for PoC will be given in the Documents attached to the file.
+
+	Step 6: Send the request to the intruder and paste all the payloads.
+
+	Step 7: Try to find a successful payload for XSS.
+
+
+Impact ->
+	With user interaction, an attacker could execute arbitrary Javascript code in a victim's browser.
+		1)This would allow an attacker to unwillingly make a victim:
+		2)Perform any action in the identified endpoint
+		3)View any information that the user is able to view
+		4)Modify any information that the user is able to modify (not sure if applicable in this case)
+		5)Interact with other application users as if it were him - impersonation (not sure if applicable in this case)
+
+Mitigation -> If you want to prevent your website from vulnebralities of XSS then you can just enable noscript on browser.
+
+
+
+
+
